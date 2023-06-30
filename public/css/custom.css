@@ -1,0 +1,17 @@
+.navbar {
+    background-color: orangered;
+}
+
+/* .navbar ul li a {
+    color: #fff;
+} */
+
+.navbar ul li a:hover {
+    color: #ccc;
+}
+
+.footer {
+    background-color: #ccc;
+}
+
+
