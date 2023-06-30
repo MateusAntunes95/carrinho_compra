@@ -2,8 +2,9 @@
 @section('title', 'Editar Usuario')
 
 @section('content')
-    <form method="PATCH" action="{{ route('user.update', $user->id) }}">
+    <form method="POST" action="{{ route('user.update', $user->id) }}">
         @csrf
+        @method('PUT')
         @include('user._form')
     </form>
 @endsection

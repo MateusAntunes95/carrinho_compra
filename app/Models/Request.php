@@ -22,4 +22,9 @@ class Request extends Model
             ->groupBy('product_id')
             ->orderBy('product_id', 'desc');
     }
+
+    public function request_product_item()
+    {
+        return $this->hasMany(RequestProduct::class);
+    }
 }

@@ -17,6 +17,7 @@ class RequestProduct extends Model
         'discount_doupon_id',
         'discount',
     ];
+
     public function product()
     {
         return $this->belongsTo(Product::class);

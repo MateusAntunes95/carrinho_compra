@@ -14,7 +14,7 @@
         @if (empty($product->id))
             <div class="form-group">
                 <label for="anexo" class="form-label">imagem:</label>
-                <input name="anexo" required id="anexo" type="file" class="form-control rounded">
+                <input name="anexo" required id="anexo"  accept=".png" type="file" class="form-control rounded">
             </div>
         @else
             <div class="row">
@@ -26,7 +26,7 @@
         @endif
         <div class="form-group">
             <label for="description">Descrição:</label>
-            <textarea name="description" id="description" required class="form-control rounded" rows="4">{{ $product->description }} </textarea>
+            <textarea name="description" id="description" required class="form-control rounded" rows="4">{{ $product->description }}</textarea>
         </div>
     </div>
     <div class="form-check mb-3">

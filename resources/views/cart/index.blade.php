@@ -19,6 +19,7 @@
                         <th>Valor Unit</th>
                         <th>Desconto(s)</th>
                         <th>Total</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,6 +41,12 @@
                                 $total_request += $total_product;
                             @endphp
                             <td>{{ number_format($total_product, 2, ',', '.') }}</td>
+                            <td>
+                                <button class="btn btn-danger remove-produto" data-toggle="tooltip"
+                                    title="Deseja retirar o produto do carrinho?" data-id-request="{{ $item->id }}"
+                                    data-id-product="{{ $rp->product->id }}" data-id-requestProduct="{{ $rp->id }}">
+                                </button>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -48,12 +55,22 @@
                 <strong> Total do pedido: </strong>
                 <span> {{ number_format($total_request, 2, ',', '.') }} </span>
             </div>
-            <div class="row">
-                <a type="button" href="{{ route('home') }}" class="btn btn-primary">Continuar Comprando?</a>
-            </div>
+            <form method="POST" action="{{ route('cart.conclude') }}">
+                @csrf
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a type="button" href="{{ route('home') }}" class="btn btn-primary d-grid">Continuar
+                            Comprando?</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-success w-100"> Comprar? </button>
+                    </div>
+                    <input name="request_id" hidden value="{{ $item->id }}">
+                </div>
+            </form>
         @empty
             <h5 class="mt-4"> Não há nenhum pedido no carrinho </h5>
         @endforelse
     </div>
-
+    <script type="text/javascript" src="{{ asset('js/cart/index.js?v=1') }}"></script>
 @endsection

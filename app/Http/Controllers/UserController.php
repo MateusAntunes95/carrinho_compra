@@ -54,6 +54,8 @@ class UserController extends Controller
         $user = User::find($id);
         $user->fill($request->all());
         $user->saveOrFail();
+
+        return redirect()->route('user.index')->with('success', 'Usuario editado com sucesso');
     }
 
     public function destroy(string $id)

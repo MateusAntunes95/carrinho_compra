@@ -24,14 +24,17 @@ Route::get('/', function () {
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/home', 'index')->name('home');
-    Route::get('/detalhes/{id}', 'details')->name('details')->middleware('auth');;
+    Route::get('/detalhes/{id}', 'details')->name('details')->middleware('auth');
 });
 
-Route::get('/carrinho', [ShoppingCart::class, 'index'])->name('cart.index');
+Route::get('/carrinho', [ShoppingCart::class, 'index'])->name('cart.index')->middleware('auth');
 Route::get('/carrinho/store', function () {
     return redirect()->route('home');
 });
 Route::post('/carrinho/store', [ShoppingCart::class, 'store'])->name('cart.store');
+Route::delete('/carrinho/destroy', [ShoppingCart::class, 'destroy'])->name('cart.destroy');
+Route::post('/carrinho/conclude', [ShoppingCart::class, 'conclude'])->name('cart.conclude');
+Route::get('/carrinho/purchase', [ShoppingCart::class, 'purchase'])->name('cart.purchase')->middleware('auth');
 
 
 Route::controller(LoginController::class)->group(function () {
