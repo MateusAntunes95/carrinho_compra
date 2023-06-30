@@ -14,7 +14,7 @@ class ProductController extends Controller
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
             if (Auth::check() && !Auth::user()->admin) {
-                return redirect()->route('home')->withErrors('Acesso não autorizado');
+                return redirect()->route('home')->with('error', 'Acesso não autorizado');
             }
             return $next($request);
         });
@@ -28,7 +28,9 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('product.create');
+        $product = new Product();
+
+        return view('product.create', compact('product'));
     }
 
     public function store(Request $request)

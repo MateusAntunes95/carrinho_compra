@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/home', 'index')->name('home');
-    Route::get('/detalhes/{id}', 'details')->name('details');
+    Route::get('/detalhes/{id}', 'details')->name('details')->middleware('auth');;
 });
 
 Route::get('/carrinho', [ShoppingCart::class, 'index'])->name('cart.index');

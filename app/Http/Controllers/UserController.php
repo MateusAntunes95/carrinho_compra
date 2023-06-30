@@ -18,7 +18,7 @@ class UserController extends Controller
             return view('user.index', compact('request', 'dados'));
         }
 
-        return redirect()->route('home')->with('error', 'Você não tem permissão para entrar');
+        return redirect()->route('home')->with('error', 'Acesso não autorizado');
     }
 
     public function create()
@@ -40,9 +40,13 @@ class UserController extends Controller
 
     public function edit(string $id)
     {
-        $user = User::find($id);
+        if (Auth::check() && Auth::user()->id == $id) {
+            $user = User::find($id);
 
-        return view('user.edit', compact('user'));
+            return view('user.edit', compact('user'));
+        }
+
+        return redirect()->route('home')->with('error', 'Acesso não autorizado');
     }
 
     public function update(Request $request, string $id)

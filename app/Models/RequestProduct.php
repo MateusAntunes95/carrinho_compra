@@ -9,6 +9,14 @@ class RequestProduct extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'request_id',
+        'product_id',
+        'value',
+        'status',
+        'discount_doupon_id',
+        'discount',
+    ];
     public function product()
     {
         return $this->belongsTo(Product::class);

@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::where('active', 1)->get();
 
         return view('home.index', compact('products'));
     }
@@ -20,7 +20,4 @@ class HomeController extends Controller
 
         return view('home.details', compact('product'));
     }
-
-
-
 }

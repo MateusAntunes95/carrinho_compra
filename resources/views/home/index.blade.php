@@ -13,10 +13,11 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">{{ $item->name }}</h5>
-                            <p class="card-text">R$ {{' ' . $item->value }}</p>
+                            <p class="card-text">R$ {{ ' ' . $item->value }}</p>
                             <a href="{{ route('details', $item->id) }}"> Detalhe do produto </a>
                         </div>
                     </div>
+                </div>
             @endforeach
         </div>
     </div>

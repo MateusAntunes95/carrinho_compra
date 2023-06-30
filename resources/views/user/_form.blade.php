@@ -6,19 +6,19 @@
         <div class="form-group">
             <div class="col-sm-3 mb-4">
                 <label for="name">Nome:</label>
-                <input name="name" id="name" class="form-control rounded" value="{{ $user->name }}">
+                <input name="name" id="name" class="form-control rounded" required value="{{ $user->name }}">
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-3 mb-3">
                 <label for="email">email:</label>
-                <input name="email" class="form-control rounded" value="{{  $user->email }}">
+                <input name="email" class="form-control rounded" required value="{{  $user->email }}">
             </div>
         </div>
         @if(empty($user->id))
             <div class="form-group">
                 <label for="password">Senha</label>
-                <input name="password" class="form-control rounded">
+                <input name="password" class="form-control rounded" required >
             </div>
         @endif
     </div>

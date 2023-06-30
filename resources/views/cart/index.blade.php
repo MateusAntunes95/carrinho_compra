@@ -8,8 +8,8 @@
         <hr />
 
         @forelse ($requests as $item)
-            <h5 class="mt-4"> Pedido: {{ $item->id }} </h5>
-            <h5 class="mt-4"> Criado em: {{ $item->created_at->format('d/m/y H:i') }} </h5>
+            <h5 class="mt-4"> Código do Pedido: {{ $item->id }} </h5>
+            <h5 class="mt-4"> Criado em: {{ $item->created_at->format('d/m/y') }} </h5>
             <table class="table mt-4">
                 <thead>
                     <tr>
@@ -29,11 +29,11 @@
                     @foreach ($item->request_products as $rp)
                         <tr>
                             <td>
-                                <img width="100" height="100" src="{{ $rp->product->image }}">
+                                <img width="100" height="100" src="{{ '/images/product/' . $rp->product->image }}">
                             </td>
                             <td>{{ $rp->quantity }}</td>
                             <td>{{ $rp->product->name }}</td>
-                            <td>{{ number_format($rp->total_value, 2, ',', '.') }}</td>
+                            <td>{{ number_format($rp->product->value, 2, ',', '.') }}</td>
                             <td>{{ number_format($rp->discounts, 2, ',', '.') }}</td>
                             @php
                                 $total_product = $rp->total_value - $rp->discounts;
@@ -49,7 +49,7 @@
                 <span> {{ number_format($total_request, 2, ',', '.') }} </span>
             </div>
             <div class="row">
-                <button type="button" href="{{ route('home') }}" class="btn btn-primary">Continuar Comprando?</button>
+                <a type="button" href="{{ route('home') }}" class="btn btn-primary">Continuar Comprando?</a>
             </div>
         @empty
             <h5 class="mt-4"> Não há nenhum pedido no carrinho </h5>
