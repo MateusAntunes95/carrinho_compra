@@ -54,6 +54,7 @@
             @endif
 
             @yield('content')
+        </div>
     </main>
     <footer class="footer p-2 mt-5">
         <div class="text-center text-sm ">
