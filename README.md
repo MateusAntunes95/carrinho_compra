@@ -31,3 +31,5 @@ Dados criado automaticamente:
 Email: admin@teste.com
 Password: 123
 
+Comando para executar o teste:
+```php artisan test``
