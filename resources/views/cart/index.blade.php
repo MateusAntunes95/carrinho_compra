@@ -55,6 +55,25 @@
                 <strong> Total do pedido: </strong>
                 <span> {{ number_format($total_request, 2, ',', '.') }} </span>
             </div>
+            <div class="row">
+                <div class="col-sm-8"></div>
+                <div class="col-sm-4">
+                    <form method="POST" action="{{ route('cart.discount') }}" class="d-flex">
+                        @csrf
+                        <input type="hidden" name="request_id" value="{{ $item->id }}">
+                        <div class="mr-2">
+                            <label for="doupon">Cupom de desconto:</label>
+                        </div>
+                        <div class="mr-2">
+                            <input type="text" class="form-control" id="doupon" name="doupon">
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-flat btn-secondary">Validar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <form method="POST" action="{{ route('cart.conclude') }}">
                 @csrf
                 <div class="row">
@@ -63,7 +82,7 @@
                             Comprando?</a>
                     </div>
                     <div class="col-sm-6">
-                        <button type="submit" class="btn btn-success w-100"> Comprar? </button>
+                        <button type="submit" class="btn btn-success w-100"> confirmar Comprar? </button>
                     </div>
                     <input name="request_id" hidden value="{{ $item->id }}">
                 </div>

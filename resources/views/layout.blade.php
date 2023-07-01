@@ -17,6 +17,7 @@
             @if (!empty(Auth::user()->admin))
                 <a href="{{ route('produto.index') }}" class="nav-link">Produtos</a>
                 <a href="{{ route('user.index') }}" class="nav-link ">Usuário</a>
+                <a href="{{ route('desconto.index') }}" class="nav-link ">Cupom</a>
             @endif
             <a class="nav-link dropdown-toggle" href="#" id="userNameDropdown" role="button"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,6 +32,7 @@
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="userNameDropdown">
                     <li><a class="dropdown-item" href="{{ route('login.destroy') }}">Logout</a></li>
                     <li><a class="dropdown-item" href="{{ route('cart.index') }}">Ver Carrinho</a></li>
+                    <li><a class="dropdown-item" href="{{ route('cart.purchase') }}">Ver Compras</a></li>
                 </ul>
             </div>
         @endauth

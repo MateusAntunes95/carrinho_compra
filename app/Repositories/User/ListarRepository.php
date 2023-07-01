@@ -31,7 +31,7 @@ class ListarRepository
     private function filter()
     {
         if (!empty($this->dados['name'])) {
-            $this->query->where('name', 'LIKE', '$' . $this->dados['name'] . '%');
+            $this->query->where('name', 'LIKE', '%' . $this->dados['name'] . '%');
         }
 
         if (!empty($this->dados['id'])) {

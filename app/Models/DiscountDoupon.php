@@ -13,10 +13,16 @@ class DiscountDoupon extends Model
         'name',
         'locator',
         'discount',
-        'limit',
         'expiration_date',
         'active',
+        'limit',
     ];
 
+    protected $attributes = [
+        'active' => 1,
+    ];
 
+    protected $casts = [
+        'active' => 'boolean',
+    ];
 }
