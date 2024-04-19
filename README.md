@@ -1,10 +1,14 @@
 Clone o repositório:
 
-```git clone https://github.com/MateusAntunes95/carrinho_compra.git```
+```
+git clone https://github.com/MateusAntunes95/carrinho_compra.git
+```
 
 Crie o arquivo .env a partir de .env.example.
 
-``` cp .env.example .env ```
+``` 
+cp .env.example .env
+```
 
 Rode os seguintes comandos na raiz do projeto:
 ```
@@ -36,13 +40,36 @@ vendor/bin/sail php artisan key:generate
 vendor/bin/sail php artisan migrate
 ```
 
-Projeto aberto na porta http://localhost:90/
+``` 
+vendor/bin/sail php artisan db:seed
+``` 
 
-Dados criado automaticamente:
-Email: admin@teste.com
-Password: 123
+Configuração do Frontend (React)
 
-Comando para executar o teste:
 ```
-php artisan test
+cd ../frontend
 ```
+
+
+```
+npm install
+```
+
+```
+npm start
+``` 
+
+O frontend estará acessível em http://localhost:3000
+
+Usuario para teste
+
+Email:
+
+```
+admin@teste.com
+```
+Senha:
+```
+123
+```
+
